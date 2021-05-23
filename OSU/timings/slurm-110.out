@@ -1,0 +1,92 @@
+1 node(5) x 2 CPUs
+Recompiles OpenMPI
+mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000
+
+# OSU MPI Barrier Latency Test v5.6.3
+# Avg Latency(us)
+             0.30
+mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw
+# OSU MPI_Get Bandwidth Test v5.6.3
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size      Bandwidth (MB/s)
+1                      65.93
+2                     127.83
+4                     263.04
+8                     517.20
+16                   1055.92
+32                   1849.21
+64                   4156.31
+128                  7805.62
+256                 12925.11
+512                 13415.71
+1024                18688.90
+2048                23662.20
+4096                24669.06
+8192                23212.15
+16384               12662.43
+32768               12801.93
+65536               11298.76
+131072               9903.22
+262144               6945.83
+524288               3711.17
+1048576              3056.35
+2097152              3000.76
+4194304              2980.00
+mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000"
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           inst-kznfd-musical-panther
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       rdmacm, udcm
+--------------------------------------------------------------------------
+
+# OSU MPI Barrier Latency Test v5.6.3
+# Avg Latency(us)
+             0.32
+[inst-kznfd-musical-panther:48088] 1 more process has sent help message help-mpi-btl-openib-cpc-base.txt / no cpcs for port
+[inst-kznfd-musical-panther:48088] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw"
+--------------------------------------------------------------------------
+No OpenFabrics connection schemes reported that they were able to be
+used on a specific port.  As such, the openib BTL (OpenFabrics
+support) will be disabled for this port.
+
+  Local host:           inst-kznfd-musical-panther
+  Local device:         mlx5_0
+  Local port:           1
+  CPCs attempted:       rdmacm, udcm
+--------------------------------------------------------------------------
+# OSU MPI_Get Bandwidth Test v5.6.3
+# Window creation: MPI_Win_allocate
+# Synchronization: MPI_Win_flush
+# Size      Bandwidth (MB/s)
+1                      20.68
+2                      40.72
+4                      82.52
+8                     161.65
+16                    332.53
+32                    656.75
+64                   1313.44
+128                  2553.04
+256                  5110.90
+512                  8727.40
+1024                15412.04
+2048                23752.93
+4096                32000.39
+8192                20397.84
+16384               15757.98
+32768               12956.62
+65536               13218.05
+131072              11873.82
+262144               7307.05
+524288               5205.85
+1048576              4888.35
+2097152              4879.62
+4194304              4902.01
+[inst-kznfd-musical-panther:48184] 1 more process has sent help message help-mpi-btl-openib-cpc-base.txt / no cpcs for port
+[inst-kznfd-musical-panther:48184] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+#SBATCH --job-name=osu
+#SBATCH --nodes=1
+#SBATCH --nodefile=nodefile5
+#SBATCH --tasks-per-node=2
+#
+echo "1 node(5) x 2 CPUs"
+echo 'Recompiles OpenMPI'
+export LD_LIBRARY_PATH=/opt/uio/hpcx/openmpi-opc/lib:$LD_LIBRARY_PATH
+export PATH=/opt/uio/hpcx/openmpi-opc/bin:$PATH
+#
+echo "mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000"
+mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000
+#
+echo "mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw"
+mpirun -np 2 /app/uio/OSU/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw
+#
+echo 'mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000"'
+mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/collective/osu_barrier -i 100000"
+#
+echo 'mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw"'
+mpirun -np 2 singularity exec --bind /app/uio/OSU:/opt/osu /app/uio/containers/noresm204_gnu102_openmpi410_slurm20116_extrae383.sif bash -c "/opt/osu/execo/libexec/osu-micro-benchmarks/mpi/one-sided/osu_get_bw"
