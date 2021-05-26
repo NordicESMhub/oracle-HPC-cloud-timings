@@ -1,0 +1,11 @@
+name: oracle-vis
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - matplotlib
+  - s3fs
+  - xarray
+  - numpy
+  - cftime
+  - cartopy
